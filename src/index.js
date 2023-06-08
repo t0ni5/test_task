@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App"
+import { BrowserRouter as Router } from "react-router-dom"
+import "./styles/navbar.css"
+import "./styles/item.css"
+import "./styles/notification.css"
+import "./styles/cart.css"
+import { configureStore } from "@reduxjs/toolkit"
+import itemReducer from "./reducers/itemReducer"
+import cartReducer from "./reducers/cartReducer"
+import { Provider } from "react-redux"
+import notificationReducer from "./reducers/notificationReducer"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = configureStore({
+    reducer: {
+        items: itemReducer,
+        cart: cartReducer,
+        notification: notificationReducer,
+    },
+})
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <Router>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </Router>
+)

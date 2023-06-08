@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.image img {
+    height: 150px;
+    width: 220px;
+    display: block;
+    margin: 0 auto;
+}
+
+.item {
+    border-radius: 15px;
+    width: 250px;
+    padding: 20px;
+    background-color: rgb(210, 218, 222);
+    margin: 20px;
+    text-align: center;
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+}
